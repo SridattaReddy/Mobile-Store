@@ -1,0 +1,44 @@
+doctype html
+html(lang='en', ng-app='MobileStore')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Mobile Store
+    link(rel='stylesheet', href='stylesheets/style.css')
+    link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  body
+    .container-fluid
+      h1.page-header
+        span.glyphicon.glyphicon-
+        | MOBILE STORE
+    div(ng-controller='StoreController as store')
+      center
+        .product.col-md-4(ng-repeat='mobile in store.mobiles track by $index')
+          .back
+            img.mobile(ng-src='{{mobile.image}}')
+            p.mob-name {{mobile.name}}
+            //
+              <p>Color: {{mobile.color}}</p>
+              <p>Memory: {{mobile.memory}}</p>
+              <p>Price: &#8377; {{mobile.price}}</p>
+            button.btn.btn-default(ng-hide='{{mobile.isSoldOut}}', type='') Buy Now
+            div
+              br
+              ul.nav.nav-tabs.nav-justified
+                li(role='presentation', ng-class="{'active':mobile.activeTab==='Description'}")
+                  a(ng-click="store.setActiveTab(mobile,'Description')") Description
+                li(role='presentation', ng-class="{'active':mobile.activeTab==='Specification'}")
+                  a(ng-click="store.setActiveTab(mobile,'Specification')") Specification
+                li(role='presentation', ng-class="{'active':mobile.activeTab==='Reviews'}")
+                  a(ng-click="store.setActiveTab(mobile,'Reviews')") Reviews
+              p
+              p(ng-show="mobile.activeTab==='Description'")
+                | Description goes here...
+              p(ng-show="mobile.activeTab==='Specification'")
+                | Specification goes here...
+              p(ng-show="mobile.activeTab==='Reviews'")
+                | Reviews goes here...
+    script(src='javascripts/angular.min.js')
+    script(src='javascripts/app.js')

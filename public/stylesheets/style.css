@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #F0F0F0;
+}
+
+.page-header {
+    font-weight: 300;
+    letter-spacing: 1.8px;
+}
+
+.mobile {
+    height: 280px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.product {
+    padding: 10px;
+}
+
+.product .mob-name {
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.product .btn {
+    border-radius: 50px;
+} 
+
+.back {
+    background-color: ;
+    padding: 20px;
+}
